@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bax01gls3cxg7"]
+[gd_scene load_steps=10 format=3 uid="uid://bax01gls3cxg7"]
 
+[ext_resource type="PackedScene" uid="uid://c8qm1btxbuprw" path="res://gameUI.tscn" id="1_2fmrj"]
 [ext_resource type="PackedScene" uid="uid://cdublr0mojqb" path="res://player.tscn" id="1_ly2g7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e26qb"]
@@ -89,3 +90,7 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node/Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_4kttr")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="GameUI" parent="Node2D" instance=ExtResource("1_2fmrj")]
