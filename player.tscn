@@ -1,6 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdublr0mojqb"]
+[gd_scene load_steps=6 format=3 uid="uid://cdublr0mojqb"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_w4mvy"]
+[ext_resource type="Texture2D" uid="uid://8aqfwpvd6m8l" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_04.png" id="2_6hgwo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00xtd"]
+albedo_texture = ExtResource("2_6hgwo")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ryqes"]
 
@@ -12,6 +16,7 @@ lock_rotation = true
 script = ExtResource("1_w4mvy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_00xtd")
 mesh = SubResource("CapsuleMesh_ryqes")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
