@@ -3,8 +3,12 @@ extends RigidBody3D
 var mouse_sensitivity := 0.001
 var twist_input := 0.0
 var pitch_input := 0.0
+var zoom_speed := 0.1
+var min_fov := 10.0
+var max_fov := 90.0
 @onready var twist_pivot := $TwistPivot
 @onready var pitch_pivot := $TwistPivot/PitchPivot
+@onready var camera := $TwistPivot/PitchPivot/Camera
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  
@@ -38,4 +42,17 @@ func _unhandled_input(event: InputEvent) -> void:
 				twist_input = -event.relative.x * mouse_sensitivity
 				pitch_input = -event.relative.y * mouse_sensitivity
 	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
+	
+
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			zoom_in()
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			zoom_out()
+
+func zoom_in() -> void:
+	camera.fov = clamp(camera.fov - zoom_speed, min_fov, max_fov)
+
+func zoom_out() -> void:
+	camera.fov = clamp(camera.fov + zoom_speed, min_fov, max_fov)
