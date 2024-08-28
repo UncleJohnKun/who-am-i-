@@ -3,12 +3,12 @@ extends RigidBody3D
 var mouse_sensitivity := 0.001
 var twist_input := 0.0
 var pitch_input := 0.0
-var zoom_speed := 0.1
-var min_fov := 10.0
-var max_fov := 90.0
+var zoom_speed := 2
+var min_fov := 40.0
+var max_fov := 120.0
 @onready var twist_pivot := $TwistPivot
 @onready var pitch_pivot := $TwistPivot/PitchPivot
-@onready var camera := $TwistPivot/PitchPivot/Camera
+@onready var camera := $TwistPivot/PitchPivot/Camera3D
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  
