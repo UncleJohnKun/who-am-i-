@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://bax01gls3cxg7"]
+[gd_scene load_steps=19 format=3 uid="uid://bax01gls3cxg7"]
 
-[ext_resource type="PackedScene" uid="uid://c8qm1btxbuprw" path="res://gameUI.tscn" id="1_2fmrj"]
-[ext_resource type="PackedScene" uid="uid://cdublr0mojqb" path="res://player.tscn" id="1_ly2g7"]
+[ext_resource type="PackedScene" uid="uid://c8qm1btxbuprw" path="res://script/scene/gameUI.tscn" id="1_2fmrj"]
+[ext_resource type="PackedScene" uid="uid://cdublr0mojqb" path="res://script/scene/player.tscn" id="1_ly2g7"]
 [ext_resource type="Texture2D" uid="uid://8qsrlfj06y12" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_01.png" id="2_47x1p"]
 [ext_resource type="Texture2D" uid="uid://8aqfwpvd6m8l" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_04.png" id="2_qyhiu"]
+[ext_resource type="PackedScene" uid="uid://806em7n6bgiq" path="res://script/scene/developmentbuild.tscn" id="5_alj6u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e26qb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -115,6 +116,24 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_4kttr")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="GameUI" parent="." instance=ExtResource("1_2fmrj")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_vertical = 8
 
-[node name="GameUI" parent="Node2D" instance=ExtResource("1_2fmrj")]
+[node name="developmentBuild" parent="." instance=ExtResource("5_alj6u")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_top = 0.0
+offset_bottom = 0.0
+grow_vertical = 0
+size_flags_horizontal = 4
